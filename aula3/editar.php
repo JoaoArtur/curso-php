@@ -2,7 +2,7 @@
 
 require_once('./config/db.php');
 
-$id = $_GET['id'];
+$id = intval($_GET['id']); // Filtrar o id para somente números, evitando SQLInjection
 
 $query = mysql_query("SELECT * FROM tarefas WHERE id = $id") or die(mysql_error());
 $result = mysql_fetch_array($query);
